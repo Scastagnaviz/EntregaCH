@@ -1,7 +1,7 @@
 const express = require("express");
-
+const session = require("express-session");
 const handlebars = require("express-handlebars");
-const routes = require("./src/routes/routes");
+const router = require("./routes/routes");
 
 const cluster = require("cluster");
 const { fork } = require('child_process');
@@ -9,9 +9,9 @@ const { fork } = require('child_process');
 const { isValidObjectId, connect } = require("mongoose");
 const mongoose = require("mongoose");
 
-const { validatePass } = require("./src/utils/passValidator");
-const { createHash } = require("./src/utils/hashGenerator");
-const UserModel = require("./src/models/usuarios");
+const { validatePass } = require("./utils/passValidator");
+const { createHash } = require("./utils/hashGenerator");
+const UserModel = require("./models/usuario");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
@@ -32,7 +32,7 @@ app.use(
         cookie: {
             httpOnly: false,
             secure: false,
-            maxAge: parseInt(TIEMPO_EXPIRACION),
+            //maxAge: parseInt(TIEMPO_EXPIRACION),
         },
         rolling: true,
         resave: true,
@@ -131,6 +131,8 @@ const options = { default: { puerto: "8080", modo: "FORK" }, alias: { m: 'modo',
 const args = parseArgs(process.argv.slice(2), options);
 const PORT = args.puerto || 8080;
 
+
+app.use('api/',router)
 
 if (args.modo === 'FORK') {
     const server = app.listen(PORT, () => {

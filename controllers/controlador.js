@@ -1,7 +1,7 @@
-const {carritoDao} = require('../DAOs/carrito')
-const {productoDao} = require('../DAOs/producto')
-const carrito = new carritoDao();
-const producto = new productoDao();
+//const {carritoDao} = require('../DAOs/carrito')
+//const {productoDao} = require('../DAOs/productos')
+//const carrito = new carritoDao();
+//const producto = new productoDao();
 
 /// Esto lo mando a services??//
 const nodemailer = require('nodemailer')
@@ -64,7 +64,7 @@ async function sendWhatsApp(obj){
 
 }
 ///////
-
+const log4js = require("log4js");
 log4js.configure({
     appenders: {
         console: { type: "console" },
@@ -248,7 +248,6 @@ module.exports = {
     getProfile,
     getTwitterPage,
     getInfo,
-    getRandoms,
     getProductos,
     getCarrito,
     addProductoCarrito,

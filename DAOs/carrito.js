@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const model = require('../models/carrito')
-const contenedor = require('../contenedores/contenedorMongo')
+const {model}= require('../models/carrito')
+const contenedorMongo = require('../contenedores/contenedorMongo')
 
 class carritoDao extends contenedorMongo{
     constructor(model){
@@ -12,4 +12,7 @@ class carritoDao extends contenedorMongo{
         return console.log('Mongo:producto agregado')
 
     }
-}
+}  
+
+
+module.exports = {carritoDao}

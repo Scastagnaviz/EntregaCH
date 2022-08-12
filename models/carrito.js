@@ -5,5 +5,5 @@ const carritoSchema = new mongoose.Schema({
     productos:{type:Array, required:true}
 
 })
-
-module.exports= mongoose.model('carritos',carritoSchema)
+const model=mongoose.model('carritos',carritoSchema)
+module.exports= {model}

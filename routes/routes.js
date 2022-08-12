@@ -1,8 +1,8 @@
 const controller = require('../controllers/controlador')
 const express = require("express");
 const log4js = require("log4js");
-
-
+const passport = require("passport");
+const app = express();
 const {Router} = express;
 
 const routerP= Router();

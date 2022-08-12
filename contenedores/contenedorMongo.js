@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
 class contenedorMongo {
-    constructor(model) {
+    constructor(modelo) {
         mongoose.connect('mongodb+srv://SantiagoC:1628@cluster0.nnzkxji.mongodb.net/?retryWrites=true&w=majority', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
         console.log('Base de datos MongoDB conectada');
+        this.model=  mongoose.model(modelo);
     }
 
     async getAll() {
