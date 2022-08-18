@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const eccomerce = require('./eccomerce');
+
 const carritoSchema = new mongoose.Schema({
     nombre :{type:String, required:true, max:100},
     fecha:{type:Date,required:true},
@@ -6,4 +8,12 @@ const carritoSchema = new mongoose.Schema({
 
 })
 const model=mongoose.model('carritos',carritoSchema)
-module.exports= {model}
+
+
+class carrito extends eccomerce(){
+constructor(tipo){
+    this.tipo = 'carrito'
+}
+}
+
+module.exports= {model,carrito}

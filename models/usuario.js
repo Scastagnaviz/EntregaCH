@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const eccomerce = require('./eccomerce');
 const usuariosSchema = new mongoose.Schema({
     username: { type: String, required: true, max: 100 },
     password: { type: String, required: true, max: 100 },
@@ -10,4 +11,13 @@ const usuariosSchema = new mongoose.Schema({
 
 })
 
-module.exports= mongoose.model('usuarios',usuariosSchema)
+
+
+
+class usuario extends eccomerce() {
+    constructor(tipo) {
+        this.tipo = 'usuario'
+    }
+}
+const model = mongoose.model('usuarios',usuariosSchema)
+module.exports={model,usuarios}
