@@ -1,7 +1,9 @@
-//const {carritoDao} = require('../DAOs/carrito')
+
+const singleton = require('singleton')
+const {carritoDao} = require('../DAOs/carrito')
 //const {productoDao} = require('../DAOs/productos')
-//const carrito = new carritoDao();
-//const producto = new productoDao();
+const carrito = carritoDao.instance()//singleton?
+//const producto =  productoDao.instance()
 
 /// Esto lo mando a services??//
 const nodemailer = require('nodemailer')

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {model}= require('../models/carrito')
 const contenedorMongo = require('../clients/contenedorMongo')
-
+let instance = null;
 class carritoDao extends contenedorMongo{
     constructor(){
         super()
@@ -41,6 +41,14 @@ class carritoDao extends contenedorMongo{
         return console.log('Mongo:producto agregado')
 
     }
+
+
+    static instance(){
+        if(!instance){
+        instance = new carritoDao();
+    }
+    return instance
+}
 }  
 
 

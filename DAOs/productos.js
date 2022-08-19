@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const model = require('../models/producto')
 const contenedor = require('../clients/contenedorMongo')
-const singleton = require('singleton');
+
+
 
 class productoDao extends contenedor{
     constructor(){
@@ -36,4 +37,14 @@ class productoDao extends contenedor{
         })
         return console.log('Mongo:Producto actulizado')
     }
+
+    static instance(){
+        if(!instance){
+        instance = new carritoDao();
+    }
+    return instance
+}
+
 };
+
+module.exports = {productoDao};

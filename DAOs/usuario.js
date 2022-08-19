@@ -35,4 +35,13 @@ class usuarioDao extends contenedorMongo{
         })
         return console.log('Mongo:Producto actulizado')
     }
+    static instance(){
+        if(!instance){
+        instance = new carritoDao();
+    }
+    return instance
 }
+
+}
+
+module.exports = {  usuarioDao}
