@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const eccomerce = require('./eccomerce');
+const eccomerce = require('../DAOs/eccomerce');
 
 const carritoSchema = new mongoose.Schema({
     nombre :{type:String, required:true, max:100},

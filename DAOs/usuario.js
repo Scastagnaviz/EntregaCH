@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const model = require('../models/usuario')
-const contenedor = require('../contenedores/contenedorMongo')
+//const contenedorMongo = require('../clients/contenedorMongo')
+const eccomerce = require('./eccomerce')
 
-class usuarioDao extends contenedorMongo{
+class usuarioDao extends eccomerce{
     constructor(){
         super()
+        this.tipo = 'usuario'
     }
     async getAll() {
         return await this.model.find()

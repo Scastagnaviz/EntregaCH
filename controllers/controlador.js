@@ -1,9 +1,11 @@
+const eccomerceFactory = require('../DAOs/eccomerceFactory')
 
-const singleton = require('singleton')
-const {carritoDao} = require('../DAOs/carrito')
-//const {productoDao} = require('../DAOs/productos')
-const carrito = carritoDao.instance()//singleton?
-//const producto =  productoDao.instance()
+
+const carritoDao =(eccomerceFactory.create('carrito'))
+const carrito = carritoDao.instance()
+const productoDao =  eccomerceFactory.create('producto')
+const producto = productoDao.instance()
+
 
 /// Esto lo mando a services??//
 const nodemailer = require('nodemailer')

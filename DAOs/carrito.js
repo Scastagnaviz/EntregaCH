@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const {model}= require('../models/carrito')
-const contenedorMongo = require('../clients/contenedorMongo')
+//const contenedorMongo = require('../clients/contenedorMongo')
+const eccomerce = require('./eccomerce');
 let instance = null;
-class carritoDao extends contenedorMongo{
+class carritoDao extends eccomerce{
     constructor(){
         super()
+        this.tipo = 'carrito'
     }
     async getAll() {
         return await this.model.find()

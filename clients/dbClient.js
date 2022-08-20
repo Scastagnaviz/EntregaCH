@@ -1,4 +1,7 @@
 class dbClient {
+    constructor(){
+        
+    }
     async connect() {
         throw new Error('Falta implementar subclase')
     }

@@ -10,11 +10,7 @@ const productoSchema = new mongoose.Schema({
 })
 
 
-class producto extends eccomerce() {
-    constructor(tipo) {
-        this.tipo = 'producto'
-    }
-}
+
 
 const model = mongoose.model('productos', productoSchema)
 module.exports = { model, producto }
