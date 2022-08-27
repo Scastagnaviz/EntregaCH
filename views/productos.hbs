@@ -1,0 +1,15 @@
+<table class="table">
+    <tr>
+        <th scope="row">Producto</th>
+        <th scope="row">Precio</th>
+    
+    </tr>
+
+    {{#forEach producto}}
+        <tr>   
+            <td>{{producto.nombre}}></td>
+            <td>{{producto.precio}}></td>
+        </tr>
+        {{/forEach}}
+          
+</table>
